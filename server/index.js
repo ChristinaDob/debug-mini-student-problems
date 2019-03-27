@@ -3,8 +3,11 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const app = express();
+app.use(bodyParser.json());
 
 app.post('/api/data', (req, res) => {
+  console.log(req.body.value);
+  console.log(req.body);
   res.json({ message: `The value you sent was ${req.body.value}` });
 });
 
